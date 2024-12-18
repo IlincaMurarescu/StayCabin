@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>User Profile Page</title>
+    <link rel="stylesheet" href="/styles/style-profile.css" />
+    <link rel="stylesheet" href="/styles/style-navbar.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- 左侧 Logo -->
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo.PNG" alt="Logo" />
+      </a>
+      <!-- 右侧 Avatar -->
+      <button class="btn" type="button" onclick="location.href='/profile';">
+        <img class="profile-icon" src="/img/avatar.png" alt="Profile Icon" />
+      </button>
+    </nav>
+    <div class="profile-container">
+      <div class="profile-content">
+        <!-- Left side: Avatar -->
+        <div class="profile-avatar">
+          <img src="/img/avatar.png" alt="Avatar" id="avatar" />
+          <button id="logoutButton" onclick="logout()">Log Out</button>
+        </div>
+        <!-- Right side: Information -->
+        <div class="profile-info">
+          <div class="username-section">
+            <span id="usernameDisplay"><%= username %></span>
+            <button id="editButton" onclick="enableEdit()">Edit</button>
+          </div>
+
+          <button id="saveButton" onclick="saveProfile()" style="display: none">
+            Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Two Columns -->
+      <div class="two-columns">
+        <!-- Left Column: My Cabin -->
+        <div class="my-cabin">
+          <h2>My Cabin</h2>
+          <% ownedCabins.forEach(cabin => { %>
+          <div class="cabin-row">
+            <img src="<%= cabin.photos[0] %>" alt="<%= cabin.name %>" />
+            <p> <%= cabin.name %> </p>
+              <button
+                class="edit-button"
+                onclick="location.href='/editcabin/<%= cabin.id %>'"
+              >
+                Edit
+              </button>
+            </p>
+          </div>
+
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </body>
+</html>

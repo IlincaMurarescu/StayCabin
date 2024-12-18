@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= cabin.name %></title>
+    <link rel="stylesheet" href="/styles/style-cabindetail.css" />
+    <link rel="stylesheet" href="/styles/style-navbar.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- Logo -->
+      <a class="navbar-brand" href="../index.ejs">
+        <img src="../img/logo.PNG" alt="Logo" />
+      </a>
+      <!-- Avatar -->
+      <button class="btn" type="button" onclick="location.href='/profile';">
+        <img class="profile-icon" src="../img/avatar.png" alt="Profile Icon" />
+      </button>
+    </nav>
+
+    <div class="main-container">
+      <div class="details-container">
+        <!-- Image Slider -->
+        <div class="image-slider">
+          <div class="slider">
+            <% cabin.photos.forEach((photo, index) => { %>
+            <img src="<%= photo %>" alt="Cabin Image <%= index + 1 %>" />
+            <% }) %>
+          </div>
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <!-- Cabin Info Section -->
+        <div class="info-section">
+          <h1><%= cabin.name %></h1>
+          <div class="info-icons">
+            <div class="info-item">
+              <img src="../img/price.png" alt="Price Icon" />
+              <span>$<%= cabin.price %> per night</span>
+            </div>
+            <div class="info-item">
+              <img src="../img/location.png" alt="Location Icon" />
+              <span><%= cabin.location.join(', ') %></span>
+              <!-- Assuming location is an array with lat/long -->
+            </div>
+          </div>
+          <p class="description"><%= cabin.description %></p>
+
+          <!-- Formularul pentru a adăuga la favourite -->
+          <form
+            id="favourite-form"
+            action="/users/<%= userId %>/favourites"
+            method="POST"
+          >
+            <input type="hidden" name="cabinId" value="<%= cabin.id %>" />
+            <button
+              type="submit"
+              id="favourite-icon"
+              class="favourite-icon"
+              onclick="toggleFavourite(event)"
+            >
+              &#10084;
+            </button>
+          </form>
+
+          <button class="check-button" onclick="checkAvailability()">
+            Check Availability
+          </button>
+        </div>
+      </div>
+
+      <!-- Comment Section -->
+      <div class="comment-section">
+        <h2>Comments</h2>
+        <% cabin.comments.forEach(comment => { %>
+        <div class="comment-row">
+          <div class="comment-avatar">
+            <img src="<%= comment.avatar %>" alt="User Avatar" />
+            <span class="username"><%= comment.username %></span>
+          </div>
+          <div class="comment-content">
+            <p><%= comment.text %></p>
+            <% if (comment.image) { %>
+            <img src="<%= comment.image %>" alt="Comment Image" />
+            <% } %>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <script>
+      let currentSlide = 0;
+
+      function changeSlide(direction) {
+        const slides = document.querySelectorAll(".slider img");
+        slides[currentSlide].style.display = "none";
+        currentSlide =
+          (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].style.display = "block";
+      }
+
+      function checkAvailability() {
+        window.location.href = "/booking"; // Update to actual booking page route
+      }
+
+      function toggleFavourite(event) {
+        event.preventDefault(); // Previne trimiterea formularului înainte de a face toggle la inimioară
+
+        const favouriteIcon = document.getElementById("favourite-icon");
+        favouriteIcon.classList.toggle("filled");
+
+        // Dacă utilizatorul apasă pe inimă, trimit cererea către server
+        const form = document.getElementById("favourite-form");
+
+        // Trimitem cererea POST către server pentru a adăuga la favorite
+        fetch(form.action, {
+          method: form.method,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cabinId: form.elements.cabinId.value,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.message);
+            alert(data.message); // Afișează mesajul de succes
+          })
+          .catch((error) => {
+            console.error("Error adding to favourites:", error);
+            alert("Failed to add to favourites");
+          });
+      }
+
+      // Initializează sliderul de imagini la încărcarea paginii
+      window.onload = () => {
+        const slides = document.querySelectorAll(".slider img");
+        slides.forEach((img, index) => {
+          img.style.display = index === 0 ? "block" : "none";
+        });
+      };
+    </script>
+  </body>
+</html>

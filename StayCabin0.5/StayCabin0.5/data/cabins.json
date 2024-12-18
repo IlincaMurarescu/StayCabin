@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "owner_id": 1,
+    "name": "Cozy Mountain Cabin",
+    "description": "A beautiful cabin located in the mountains.",
+    "photos": [
+      "/cabin-images/cabin1.jpg",
+      "/cabin-images/cabin1-interior1.jpg"
+    ],
+    "comments": [
+      1,
+      2
+    ],
+    "location": [
+      42.1234,
+      -71.5678
+    ],
+    "price": 150
+  },
+  {
+    "id": 2,
+    "owner_id": 2,
+    "name": "Lakeside Retreat",
+    "description": "A peaceful cabin by the lake, perfect for relaxation.",
+    "photos": [
+      "/cabin-images/cabin2.jpg",
+      "/cabin-images/cabin2-interior1.jpg",
+      "/cabin-images/cabin2-interior2.jpg"
+    ],
+    "comments": [
+      3
+    ],
+    "location": [
+      36.5678,
+      -85.4321
+    ],
+    "price": 200
+  },
+  {
+    "id": 3,
+    "owner_id": 3,
+    "name": "Forest Hideaway",
+    "description": "A quiet getaway surrounded by tall trees and nature.",
+    "photos": [
+      "/cabin-images/cabin3.jpg",
+      "/cabin-images/cabin3-interior1.jpg",
+      "/cabin-images/cabin3-interior2.jpg"
+    ],
+    "comments": [],
+    "location": [
+      50.6789,
+      -122.3456
+    ],
+    "price": 180
+  },
+  {
+    "id": 4,
+    "owner_id": 4,
+    "name": "Beachfront Bungalow",
+    "description": "A luxurious cabin right on the beach with modern amenities.",
+    "photos": [
+      "/cabin-images/cabin4.jpg",
+      "/cabin-images/cabin4-interior1.jpg",
+      "/cabin-images/cabin4-interior2.jpg"
+    ],
+    "comments": [
+      4,
+      5
+    ],
+    "location": [
+      29.3456,
+      -80.1234
+    ],
+    "price": 250
+  },
+  {
+    "id": 5,
+    "owner_id": 5,
+    "name": "",
+    "description": "",
+    "photos": [
+      "/cabin-images/cabin4.jpg",
+      "/cabin-images/cabin4-interior1.jpg",
+      "/cabin-images/cabin4-interior2.jpg"
+    ],
+    "comments": [],
+    "location": [
+      33.789,
+      -115.6789
+    ],
+    "price": "2000"
+  }
+]

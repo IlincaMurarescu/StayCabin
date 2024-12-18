@@ -1,0 +1,124 @@
+/* Set the page background image */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden; /* Ensure the background image fully covers the screen */
+}
+
+/* Add a dark green transparent overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 89, 31, 0.6);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Text styles */
+h1, p {
+    color: white;
+    text-align: center;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    margin: 20px 0; /* Add some margin to the title and paragraph */
+}
+
+/* Parent container styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Box container styles */
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px; /* Set a fixed width to prevent narrowing */
+    min-height: 300px;
+    margin: 20px auto;
+    gap: 20px; /* Add spacing between rectangles */
+}
+
+/* Child box styles */
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    position: relative; /* Allow internal elements to be positioned */
+    cursor: pointer; /* Change mouse to pointer */
+    transition: transform 0.2s ease-in-out; /* Add a slight scaling animation */
+}
+
+.box:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Circle styles */
+.circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Checkmark styles */
+.checked .circle {
+    background-color: rgba(140, 155, 124, 0.8); /* Change background to green on click */
+}
+
+.checked .circle::before {
+    content: '✓'; /* Use pseudo-element to display checkmark */
+}
+
+/* Button container styles */
+.button-container {
+    text-align: center;
+    margin-top: 30px; /* Add top margin to separate button from content above */
+}
+
+/* Button styles */
+button {
+    background-color: rgba(251, 255, 246, 1); /* Green background */
+    color: rgba(38, 40, 36, 1);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(140, 155, 124, 1); /* Slightly darken on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}

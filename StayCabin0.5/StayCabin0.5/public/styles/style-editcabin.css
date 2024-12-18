@@ -1,0 +1,135 @@
+/* Set page background */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(251, 255, 246); /* Light background */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; /* Prevent navbar overlap */
+  }
+  
+  /* Back button container */
+  .back-container {
+    width: 90%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .back-btn {
+    background-color: rgba(140, 155, 124, 1); /* Green tone */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back-btn:hover {
+    background-color: rgba(110, 130, 100, 1); /* Darker green */
+    transform: translateY(-2px);
+  }
+  
+  .back-btn:active {
+    background-color: rgba(90, 110, 80, 1);
+    transform: translateY(0);
+  }
+  
+  /* Main container styling */
+  .edit-container {
+    background: white;
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Section styling */
+  .edit-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .edit-section label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .edit-section input,
+  .edit-section textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .edit-section textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  /* Media upload section */
+  #media-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  #media-preview img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Action buttons */
+  .action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .action-buttons .btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .save-btn {
+    background-color: rgba(140, 155, 124, 1); /* Green tone */
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: rgba(110, 130, 100, 1);
+  }
+  
+  .delete-btn {
+    background-color: rgba(235, 87, 87, 1); /* Red tone */
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: rgba(200, 50, 50, 1);
+  }
+  

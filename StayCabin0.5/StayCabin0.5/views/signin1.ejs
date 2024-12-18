@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Choose Role</title>
+    <link rel="stylesheet" href="/styles/style-signin1.css" />
+    <link rel="stylesheet" href="/styles/style-navbar.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <!--  Logo -->
+      <a class="navbar-brand" href="/login">
+        <img src="../img/logo.PNG" alt="Logo" />
+      </a>
+    </nav>
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>I am</h1>
+      <div class="box-container">
+        <div class="box left" onclick="selectRole('1')">
+          <div class="circle"></div>
+          Cabin<br />Owner
+        </div>
+        <div class="box right" onclick="selectRole('2')">
+          <div class="circle"></div>
+          Guest
+        </div>
+      </div>
+      <div class="button-container">
+        <form action="/users/signup/step2" method="GET">
+          <input type="hidden" name="role" id="roleInput" required />
+          <button type="submit">Next</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function selectRole(role) {
+        document.getElementById("roleInput").value = role;
+      }
+    </script>
+  </body>
+</html>

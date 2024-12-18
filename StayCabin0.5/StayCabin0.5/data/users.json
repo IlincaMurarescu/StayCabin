@@ -1,0 +1,26 @@
+[
+  {
+    "username": "b",
+    "password": "$2b$10$RfEXrURIWOyQnMf0gIi/uOYkkZKGGK4FEk1hETPFNd9LlgyCzGnuW",
+    "role": 1,
+    "profile_pic": "",
+    "favourites": [],
+    "id": 4
+  },
+  {
+    "username": "a",
+    "password": "$2b$10$1v5OiDI2eVW/uKdMzlN8B.xXasy22H2Xb0luH423sTbKgcwPKgMnC",
+    "role": 2,
+    "profile_pic": "",
+    "favourites": ["3"],
+    "id": 5
+  },
+  {
+    "username": "a",
+    "password": "$2b$10$/dWo9jGYE5kn/x6tIwtIcOwaRlaVCVNie6gHNiKns3A5IlsFoHLPe",
+    "role": 2,
+    "profile_pic": "",
+    "favourites": [],
+    "id": 6
+  }
+]

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Edit Cabin</title>
+    <link rel="stylesheet" href="../styles/style-editcabin.css" />
+    <link rel="stylesheet" href="../styles/style-navbar.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <!--  Logo -->
+      <a class="navbar-brand" href="../index.ejs">
+        <img src="../img/logo.PNG" alt="Logo" />
+      </a>
+      <!--  Avatar -->
+      <button class="btn" type="button" onclick="location.href='/profile';">
+        <img class="profile-icon" src="../img/avatar.png" alt="Profile Icon" />
+      </button>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-container">
+      <button class="btn back-btn" onclick="history.back()">Back</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="edit-container">
+      <!-- Edit Title -->
+      <div class="edit-section">
+        <label for="cabin-title">Title</label>
+        <input type="text" id="cabin-title" placeholder="Enter title" />
+      </div>
+
+      <!-- Edit Price -->
+      <div class="edit-section">
+        <label for="cabin-price">Price (USD)</label>
+        <input type="number" id="cabin-price" placeholder="Enter price" />
+      </div>
+
+      <!-- Edit Details -->
+      <div class="edit-section">
+        <label for="cabin-details">Details</label>
+        <textarea id="cabin-details" placeholder="Enter details"></textarea>
+      </div>
+
+      <!-- Upload Media -->
+      <div class="edit-section">
+        <label for="upload-media">Upload Images or Videos</label>
+        <input type="file" id="upload-media" multiple />
+        <div id="media-preview"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn save-btn" id="save-btn">Save Changes</button>
+        <button class="btn delete-btn" id="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Get the cabinId from the URL (e.g., /editcabin/1)
+      const urlParams = new URLSearchParams(window.location.search);
+      const cabinId = window.location.pathname.split("/")[2];
+
+      const saveButton = document.getElementById("save-btn");
+      const titleInput = document.getElementById("cabin-title");
+      const priceInput = document.getElementById("cabin-price");
+      const detailsTextarea = document.getElementById("cabin-details");
+      const mediaInput = document.getElementById("upload-media");
+
+      // Fetch the current cabin data (optional, to pre-fill the form fields)
+      window.onload = async () => {
+        const response = await fetch(
+          `http://localhost:3000/editcabin/${cabinId}`
+        );
+        const cabin = await response.json();
+
+        titleInput.value = cabin.name;
+        priceInput.value = cabin.price;
+        detailsTextarea.value = cabin.description;
+      };
+
+      saveButton.addEventListener("click", async () => {
+        const updatedData = {
+          name: titleInput.value,
+          price: priceInput.value,
+          description: detailsTextarea.value,
+        };
+
+        const formData = new FormData();
+        const files = mediaInput.files;
+        for (let i = 0; i < files.length; i++) {
+          formData.append("files", files[i]);
+        }
+
+        try {
+          const response = await fetch(
+            `http://localhost:3000/cabins/updatedetails/${cabinId}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(updatedData),
+            }
+          );
+
+          if (!response.ok) {
+            console.log("Response not okay from the server");
+
+            throw new Error("Failed to update cabin details");
+          }
+
+          const data = await response.json();
+          alert("Cabin details updated successfully!");
+          window.location.href = "/profile";
+        } catch (error) {
+          console.error("Error updating cabin:", error);
+          alert("Failed to update cabin details");
+          window.location.href = "/profile";
+        }
+      });
+
+      const mediaPreview = document.getElementById("media-preview");
+
+      mediaInput.addEventListener("change", (event) => {
+        mediaPreview.innerHTML = "";
+        const files = event.target.files;
+        for (const file of files) {
+          const fileReader = new FileReader();
+          fileReader.onload = () => {
+            const img = document.createElement("img");
+            img.src = fileReader.result;
+            img.alt = "Uploaded preview";
+            mediaPreview.appendChild(img);
+          };
+          fileReader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

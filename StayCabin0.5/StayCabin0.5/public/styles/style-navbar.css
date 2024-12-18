@@ -1,0 +1,59 @@
+.navbar, .navbar * {
+  box-sizing: border-box; /* 确保所有子元素尺寸受控 */
+  float: none; /* 取消浮动影响 */
+  clear: none; /* 禁止换行 */
+}
+
+/* 确保导航栏有足够空间 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* 占满屏幕宽度 */
+  z-index: 1000;
+  background-color: rgb(38, 40, 36); /* 背景色 */
+  padding: 5px 10px; /* 加大内边距，增加左右空隙 */
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: space-between; /* 两端对齐 */
+  align-items: center; /*垂直居中 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+  flex-wrap: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+/* 左侧 Logo 容器 */
+.navbar .navbar-brand {
+  display: flex;
+  margin-right: auto; /* 确保 Logo 靠左并留空 */
+  align-items: center; /* 垂直居中对齐 */
+  flex-shrink: 0; /* 防止被挤压 */
+}
+
+/* Logo 图片大小 */
+.navbar .navbar-brand img {
+  height: 40px; /* 控制 Logo 高度 */
+  width: auto; /* 按比例缩放 */
+}
+
+/* 右侧 Avatar 按钮 */
+.navbar .btn {
+  height: 35px; /* 确保 Avatar 按钮大小 */
+  width: 35px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding:0;
+  margin-left:auto; /* 确保按钮靠右 */
+  flex-shrink: 0; /* 防止按钮被挤压 */
+}
+
+/* Avatar 图标 */
+.navbar .profile-icon {
+  height: 100%; /* 占满按钮 */
+  width: 100%; /* 占满按钮 */
+  object-fit: cover; /* 确保图标按比例缩放 */
+  border-radius: 50%; /* 圆形效果 */
+}

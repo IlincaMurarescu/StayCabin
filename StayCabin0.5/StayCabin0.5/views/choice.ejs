@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Log in or Sign in</title>
+    <!-- Link to external CSS files -->
+    <link rel="stylesheet" href="../styles/style-navbar.css">
+    <link rel="stylesheet" href="../styles/style-choice.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!--  Logo -->
+        <a class="navbar-brand" href="../index.ejs">
+            <img src="../img/logo.PNG" alt="Logo" />
+        </a>
+        <!--  Avatar -->
+        <button class="btn" type="button" onclick="location.href='/profile.ejs';">
+            <img class="profile-icon" src="../img/avatar.png" alt="Profile Icon" />
+        </button>
+    </nav>
+    
+
+    <!-- Dark green transparent overlay -->
+    <div class="overlay"></div>
+
+    <!-- Page content container -->
+    <div class="page-container">
+        <h1>Log in or Sign in</h1>
+        <!-- Buttons for login and signup -->
+        <div class="button-container">
+            <button onclick="navigateToLogin()">Log In</button>
+            <button onclick="navigateToSignin()">Sign In</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateToLogin() {
+            window.location.href = 'login.ejs'; // Navigate to the login page
+        }
+        function navigateToSignin() {
+            window.location.href = 'signin1.ejs'; // Navigate to the signup page
+        }
+    </script>
+</body>
+</html>
+

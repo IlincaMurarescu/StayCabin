@@ -1,0 +1,234 @@
+/* Basic styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(251, 255, 246);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the top */
+  min-height: 100vh;
+  padding-top: 100px; /* 防止导航栏遮挡内容 */
+}
+
+.details-container {
+  display: flex;
+  max-width: 900px;
+  background-color: rgba(251, 255, 246, 1);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px; /* Add top margin */
+}
+
+/* Left section: Image slider */
+.image-slider {
+  position: relative;
+  flex: 1;
+  background-color: rgba(240, 240, 240, 1);
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  display: none;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Right section: Text information */
+.info-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-section h1 {
+  font-size: 28px;
+  color: rgba(38, 40, 36, 1);
+  margin-bottom: 10px;
+}
+
+/* Icon information section */
+.info-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.info-item span {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Description section */
+.info-section .description {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.check-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Basic heart icon styles */
+.favourite-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/empty-heart.png"); /* Empty heart icon */
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Filled heart icon styles */
+.favourite-icon.filled {
+  background-image: url("../img/filled-heart.png"); /* Filled heart icon */
+}
+
+/* Hover effect */
+.favourite-icon:hover {
+  transform: scale(1.2);
+}
+
+.check-button {
+  background-color: rgba(140, 155, 124, 1);
+  color: white;
+}
+
+.check-button:hover {
+  background-color: rgba(110, 130, 100, 1);
+}
+
+/* Comment section styles */
+.comment-section {
+  margin-top: 20px;
+  max-width: 900px; /* Matches the width of details-container */
+  background-color: rgba(251, 255, 246, 1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-left: auto; /* Center align */
+  margin-right: auto;
+}
+
+.comment-section h2 {
+  font-size: 24px;
+  color: rgba(38, 40, 36, 1);
+  margin-bottom: 15px;
+}
+
+/* Styles for each comment block */
+.comment-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 15px;
+  padding: 10px;
+  background-color: rgba(251, 255, 246, 1);
+  border: 1px solid rgba(140, 155, 124, 1);
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* User avatar section */
+.comment-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.comment-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Circular avatar */
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.comment-avatar .username {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Comment content section */
+.comment-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-content p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.comment-content img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}

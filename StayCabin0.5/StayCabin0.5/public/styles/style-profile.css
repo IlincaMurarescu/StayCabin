@@ -1,0 +1,322 @@
+/* Set the page background color */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(251, 255, 246);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 200px; /* 防止导航栏遮挡内容 */
+}
+
+/* Configure profile container */
+.profile-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 600px;
+    width: 100%;
+    padding-top: 120px; /* 防止导航栏遮挡内容 */
+}
+
+/* Configure profile content layout */
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Configure avatar styles */
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Log Out button styles */
+button#logoutButton {
+    background-color: rgba(140, 155, 124, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#logoutButton:hover {
+    background-color: rgba(110, 130, 100, 1);
+}
+
+/* Configure personal information section */
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.username-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#usernameDisplay {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#editButton, #saveButton {
+    background-color: rgba(140, 155, 124, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editButton:hover, #saveButton:hover {
+    background-color: rgba(110, 130, 100, 1);
+}
+
+#roleDisplay {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#bio {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#bio:disabled {
+    background-color: rgba(230, 230, 230, 0.5);
+}
+
+/* Favourite list styles */
+.favourite-list {
+    margin-top: 30px;
+    padding-top: 20px; /* Ensure spacing between the divider and content */
+    border-top: 2px solid rgba(140, 155, 124, 0.5); /* Add a top divider */
+}
+
+.favourite-list h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Row layout */
+.favourite-list .row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Cabin item styles */
+.favourite-list .cabin-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+    text-align: center;
+}
+
+.favourite-list .cabin-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.favourite-list .cabin-item p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Two Columns Container */
+.two-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+    border-bottom: none; /* Remove divider under My Cabin section */
+}
+
+/* My Cabin Section */
+.my-cabin {
+    flex: 1;
+    padding-right: 30px; /* Ensure text doesn't stick to the divider */
+    margin-bottom: 0; /* Remove extra bottom margin */
+    border-bottom: none; /* Remove divider under My Cabin section */
+}
+
+.my-cabin h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.my-cabin .cabin-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.my-cabin .cabin-row img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.my-cabin .edit-button {
+    background-color: rgba(140, 155, 124, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.my-cabin .edit-button:hover {
+    background-color: rgba(110, 130, 100, 1);
+}
+
+/* Reservation Management Section */
+.reservation-management {
+    flex: 1;
+    padding-left: 30px; /* Ensure text doesn't stick to the divider */
+    border-left: 2px solid rgba(140, 155, 124, 0.5); /* Add a vertical divider */
+}
+
+.reservation-management h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.reservation-management .reservation-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(251,255,246,1);
+    border: 1px solid rgba(140, 155, 124, 1); /* Add a green border */
+    border-radius: 10px;
+    width: 400px; /* Ensure rows occupy full container width */
+}
+
+.reservation-management .reservation-row img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.reservation-management .reservation-info {
+    flex-grow: 5;
+    flex-basis: 90%; /* Specify initial width */
+    max-width: 90%; /* Limit maximum width to avoid shrinking */
+    white-space: normal; /* Allow text to wrap */
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to two lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
+}
+
+.reservation-management .reservation-select {
+    padding: 5px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Reservation Select Dropdown */
+.reservation-select {
+    width: 150px; /* Set width */
+    padding: 8px 12px; /* Adjust padding for button size */
+    font-size: 14px; /* Font size */
+    font-weight: 500; /* Font weight */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(140, 155, 124, 1); /* Background color */
+    color: rgba(251,255,246,1); /* Text color */
+    outline: none; /* Remove default focus styles */
+    appearance: none; /* Remove browser's default dropdown arrow */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.3s ease; /* Add transition effects */
+}
+
+.reservation-select {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%707070" d="M7 10l5 5 5-5H7z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-size: 20px; /* Adjust arrow size */
+    background-position: right 0px center; /* Align arrow to the right, centered */
+}
+
+/* Hover styles */
+.reservation-select:hover {
+    background-color: rgba(230, 230, 230, 1); /* Lighter background */
+    border-color: rgba(0, 0, 0, 0.4); /* More prominent border color */
+}
+
+/* Focus styles */
+.reservation-select:focus {
+    border-color: rgba(140, 155, 124, 1); /* Focus border color */
+    box-shadow: 0 0 5px rgba(110, 130, 100, 1); /* Focus shadow effect */
+}
+
+/* Disabled state */
+.reservation-select:disabled {
+    background-color: rgba(200, 200, 200, 1); /* Gray background */
+    color: rgba(100, 100, 100, 1); /* Gray text */
+    cursor: not-allowed; /* Disabled cursor */
+}
+
+/* Set dividers for layout sections */
+.profile-container,
+.favourite-list,
+.my-cabin,
+.reservation-management {
+    border-bottom: 2px solid rgba(140, 155, 124, 0.5); /* Green semi-transparent divider */
+    padding-bottom: 20px; /* Spacing between divider and content */
+    margin-bottom: 20px; /* Spacing between dividers */
+}
+
+/* Remove divider from the last module */
+.reservation-management {
+    border-bottom: none;
+}
